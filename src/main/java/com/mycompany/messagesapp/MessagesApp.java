@@ -4,13 +4,23 @@
 
 package com.mycompany.messagesapp;
 
+import java.sql.Connection;
+
 /**
  *
  * @author soycarlosherrera
  */
 public class MessagesApp {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) {        
+        
+        ConnectionApp connectionApp = new ConnectionApp();
+        
+        try(Connection connection = connectionApp.getConnection()){
+            
+        }catch(Exception e){
+            
+            System.out.println(e);
+        }
     }
 }
