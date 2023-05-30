@@ -10,4 +10,20 @@ package com.mycompany.messagesapp;
  */
 public class MessageDAO {
     
+    public static void createMessage(Message message){
+        
+    }
+    
+    public static void readMessage(){
+        
+    }
+    
+    public static void deleteMessage(int id_Message){
+        
+    }
+    
+    public static void updateMessage(Message message){
+        
+    }
+    
 }

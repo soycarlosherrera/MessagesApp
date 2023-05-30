@@ -21,14 +21,7 @@ public class ConnectionApp {
         try{
             
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/MESSAGESAPPBD", "root", "");
-            
-            if(connection != null){
-                
-                System.out.println("Se Realizo la Conexion a la BD con Exito");
-                
-            }
-                
-        
+                   
         }catch(SQLException e){
             
             System.out.println(e);
