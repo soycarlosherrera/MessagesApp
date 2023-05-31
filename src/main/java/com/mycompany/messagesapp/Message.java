@@ -10,7 +10,7 @@ package com.mycompany.messagesapp;
  */
 public class Message {
     
-    int id_Message;
+    int id_message;
     String message;
     String messageAuthor;
     String messageDate;
@@ -26,11 +26,11 @@ public class Message {
     }    
 
     public int getId_Message() {
-        return id_Message;
+        return id_message;
     }
 
     public void setId_Message(int id_Message) {
-        this.id_Message = id_Message;
+        this.id_message = id_Message;
     }
 
     public String getMessage() {

@@ -67,8 +67,7 @@ public class MessageDAO {
                 System.out.println("Fecha: " + resultSet.getString("messageDate"));
                 System.out.println("....................................");
                 
-            }
-                
+            }                
             
         }catch(SQLException e){
             
@@ -78,7 +77,36 @@ public class MessageDAO {
         
     }
     
-    public static void deleteMessage(int id_Message){
+    public static void deleteMessage(int id_message){
+        
+        ConnectionApp connectionApp = new ConnectionApp();
+        
+        try(Connection connection = connectionApp.getConnection()){
+            
+            PreparedStatement preparedStatement = null;
+            
+            try{
+                
+                String query = "DELETE FROM Message WHERE ID_MESSAGE = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1,id_message);
+                
+                preparedStatement.executeUpdate();
+                System.out.println("...........................");
+                System.out.println("Mensaje borrado con exito...");
+                System.out.println("...........................");
+                
+            }catch(SQLException ex){
+                
+                System.out.println("No fue posible eliminar el mensaje");
+                System.out.println(ex);
+                
+            }
+            
+        }catch(SQLException e){
+            
+            System.out.println(e);
+        }
         
     }
     
