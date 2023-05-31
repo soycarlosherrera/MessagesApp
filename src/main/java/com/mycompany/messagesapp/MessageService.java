@@ -31,6 +31,8 @@ public class MessageService {
     
     public static void readMessage(){
         
+        MessageDAO.readMessage();
+        
     }
     
     public static void deleteMessage(){
