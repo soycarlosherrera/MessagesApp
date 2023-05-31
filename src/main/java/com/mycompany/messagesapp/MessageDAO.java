@@ -112,6 +112,36 @@ public class MessageDAO {
     
     public static void updateMessage(Message message){
         
+        ConnectionApp connectionApp = new ConnectionApp();
+        
+        try(Connection connection = connectionApp.getConnection()){
+            
+            PreparedStatement preparedStatement = null;
+            
+            try{
+                
+                String query = "UPDATE Message SET message = ? WHERE ID_MESSAGE = ?";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, message.getMessage());
+                preparedStatement.setInt(2, message.getId_message());
+                
+                preparedStatement.executeUpdate();
+                System.out.println("...........................");
+                System.out.println("Mensaje actualizado con exito...");
+                System.out.println("...........................");
+                
+            }catch(SQLException ex){
+                
+                System.out.println("No fue posible actualizar el mensaje");
+                System.out.println(ex);
+                
+            }
+            
+        }catch(SQLException e){
+            
+            System.out.println(e);
+        }
+        
     }
     
 }

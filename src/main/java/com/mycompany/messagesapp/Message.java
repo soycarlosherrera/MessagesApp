@@ -25,11 +25,11 @@ public class Message {
         this.messageDate = messageDate;
     }    
 
-    public int getId_Message() {
+    public int getId_message() {
         return id_message;
     }
 
-    public void setId_Message(int id_Message) {
+    public void setId_message(int id_Message) {
         this.id_message = id_Message;
     }
 
