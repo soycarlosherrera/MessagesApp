@@ -4,6 +4,8 @@
  */
 package com.mycompany.messagesapp;
 
+import java.util.Scanner;
+
 /**
  *
  * @author soycarlosherrera
@@ -11,6 +13,19 @@ package com.mycompany.messagesapp;
 public class MessageService {
     
     public static void createMessage(){
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Por favor escribe tu mensaje");
+        String text = sc.nextLine();
+        
+        System.out.println("Ahora dime quien eres");
+        String name = sc.nextLine();
+        
+        Message message = new Message();
+        message.setMessage(text);
+        message.setMessageAuthor(name);
+        
+        MessageDAO.createMessage(message);
         
     }
     

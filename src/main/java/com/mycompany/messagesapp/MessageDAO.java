@@ -4,6 +4,10 @@
  */
 package com.mycompany.messagesapp;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  *
  * @author soycarlosherrera
@@ -11,6 +15,33 @@ package com.mycompany.messagesapp;
 public class MessageDAO {
     
     public static void createMessage(Message message){
+        
+        ConnectionApp connectionApp = new ConnectionApp();
+        
+        try(Connection connection = connectionApp.getConnection()){
+            
+            PreparedStatement preparedStatement = null;
+            
+            try{
+                
+                String query = "INSERT INTO Message (message, messageAuthor) VALUES (?,?)";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, message.getMessage());
+                preparedStatement.setString(2, message.getMessageAuthor());
+                
+                preparedStatement.executeUpdate();
+                System.out.println("...........................");
+                System.out.println("Mensaje creado con exito...");
+                System.out.println("...........................");
+                
+            }catch(SQLException ex){
+                System.out.println(ex);
+            }
+            
+        }catch(SQLException e){
+            
+            System.out.println(e);
+        }
         
     }
     

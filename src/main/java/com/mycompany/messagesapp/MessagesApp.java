@@ -47,15 +47,7 @@ public class MessagesApp {
                     break;
             }
             
-        }while(option != 5);
+        }while(option != 5);        
         
-        /*ConnectionApp connectionApp = new ConnectionApp();
-        
-        try(Connection connection = connectionApp.getConnection()){
-            
-        }catch(Exception e){
-            
-            System.out.println(e);
-        }*/
     }
 }
